@@ -34,6 +34,7 @@ data = {"intents": [
 ]}
 """
 
+import json
 import pandas as pd
 import string
 import random 
@@ -52,7 +53,12 @@ dataframe = pd.read_json("starwarsintents.json",convert_dates=True)
 
 print(dataframe.describe())
 
-"""
+#Import the data from a json file
+f=open("starwarsintents.json")
+data=json.load(f)
+f.close()
+
+
 # initialisation de lemmatizer pour obtenir la racine des mots
 lemmatizer = WordNetLemmatizer()
 
@@ -184,4 +190,3 @@ def get_response(intents_list, intents_json):
 #Little modification to save the model. 
 # Save the entire model as a SavedModel.
 #model.save('saved_model/my_model.h5')
-"""
