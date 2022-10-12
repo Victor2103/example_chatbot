@@ -189,4 +189,4 @@ def get_response(intents_list, intents_json):
 
 #Little modification to save the model. 
 # Save the entire model as a SavedModel.
-#model.save('saved_model/my_model.h5')
+model.save('saved_model/my_model.h5')
