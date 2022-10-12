@@ -40,6 +40,7 @@ import string
 import random 
 import nltk
 import numpy as np
+import os
 from nltk.stem import WordNetLemmatizer 
 import tensorflow as tf 
 from keras import Sequential 
@@ -48,13 +49,18 @@ nltk.download('omw-1.4')
 nltk.download("punkt")
 nltk.download("wordnet")
 
-#Import the data as a dataframe
-dataframe = pd.read_json("starwarsintents.json",convert_dates=True)
+#Define the path data
+path="data"
+data = os.listdir(path)
+print(data)
 
-print(dataframe.describe())
+#Import the data as a dataframe
+#dataframe = pd.read_json(os.path.join(path,"starwarsintents.csv"),convert_dates=True)
+
+#print(dataframe.describe())
 
 #Import the data from a json file
-f=open("starwarsintents.json")
+f=open(os.path.join(path,"starwarsintents.json"))
 data=json.load(f)
 f.close()
 
